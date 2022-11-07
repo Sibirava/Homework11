@@ -1,8 +1,11 @@
 import random
 
+RANDOM_VALUE_DOWN = -100
+RANDOM_VALUE_UP = 100
+NUMBER_VECTOR_ELEMENTS = 10
 def random_vector_elements():
-   n = 10
-   vector = [random.randrange(100) for i in range(n)]
+
+   vector = [random.randint(RANDOM_VALUE_DOWN, RANDOM_VALUE_UP) for i in range(NUMBER_VECTOR_ELEMENTS)]
    return vector
 
 def count_odd_even_elements(vector):

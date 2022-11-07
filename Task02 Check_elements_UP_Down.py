@@ -1,14 +1,6 @@
-def enter_elements_row():
-    vector = []
+def input_vector_element(number_vector_elements):
 
-    element = 0
-
-    while element != -1:
-        element = int(input("Input element in a vector:"))
-        if element == -1:
-            break
-        else:
-            vector.append(element)
+    vector = [int(input("Input element of list:")) for i in range(number_vector_elements)]
     return vector
 
 def check_vector_elements_UP(vector):
@@ -29,7 +21,8 @@ def check_vector_elements_down(vector):
 
 def main():
 
-    vector = enter_elements_row()
+    number_vector_elements = int(input(f"Input number of list elements: "))
+    vector = input_vector_element(number_vector_elements)
 
     if check_vector_elements_UP(vector):
         msg = f"Elements of vector are UP"
@@ -37,7 +30,6 @@ def main():
         msg = f"Elements of vector are down"
     else:
         msg = "Elements of vector DON'T form ANY sequence"
-
     print(msg)
 
 main()

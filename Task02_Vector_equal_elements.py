@@ -1,11 +1,15 @@
 import random
+
+RANDOM_VALUE_DOWN = -100
+RANDOM_VALUE_UP = 100
+NUMBER_VECTOR_ELEMENTS = 20
 def random_vector_elements():
-   n = 10
-   vector = [random.randrange(100) for i in range(n)]
+
+   vector = [random.randint(RANDOM_VALUE_DOWN, RANDOM_VALUE_UP) for i in range(NUMBER_VECTOR_ELEMENTS)]
    return vector
 
 
-def check_vector_elements_equal(vector):
+def check_vector_elements_different(vector):
 
     for i in range(len(vector) - 1):
         for j in range(i + 1, len(vector)):
@@ -16,10 +20,9 @@ def check_vector_elements_equal(vector):
 
 def main():
     vector = random_vector_elements()
-    print(vector)
 
-    answer = check_vector_elements_equal(vector)
-    print(answer)
+    msg = f"{vector} \n {check_vector_elements_different(vector)}"
 
+    print(msg)
 
 main()

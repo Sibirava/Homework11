@@ -1,35 +1,24 @@
-def enter_elements_row():
-    ls = []
+def input_vector_element(number_vector_elements):
 
-    element = 0
+    vector = [int(input("Input element of list:")) for i in range(number_vector_elements)]
+    return vector
 
-    while element != -1:
-        element = int(input("Input element in a row:"))
-        if element == -1:
-            break
-        else:
-            ls.append(element)
-    return ls
+def check_palindrome(vector):
+    while len(vector) != 0:
+        if vector[0] != vector[len(vector) - 1]:
+            return False
+        vector = vector[1:len(vector) - 1]
+    return True
 
-def check_palindrome(ls):
-
-    if len(ls) % 2 == 0:
-        central_element = round(len(ls) / 2)
-        ls1 = ls[:central_element]
-        new_ls = ls[central_element:]
-        new_ls = new_ls[::-1]
-        if ls1 == new_ls:
-            return True
-    return False
 
 def main():
-    ls = enter_elements_row()
+    number_vector_elements = int(input(f"Input number of list elements: "))
+    vector = input_vector_element(number_vector_elements)
 
-    if check_palindrome(ls):
-        msg = f"Elements are mirrored to the middle of the list{ls}"
-    else:
-        msg = f"Elements of list {ls} are not mirrored"
+    msg = (f"{vector} Vector elements are mirrored." if check_palindrome(vector)
+           else f"{vector} Vector elements are not mirrored.")
 
     print(msg)
-main()
 
+
+main()

@@ -1,14 +1,5 @@
-def enter_elements_row():
-    ls = []
-
-    element = 0
-
-    while element != -1:
-        element = int(input("Input element in a row:"))
-        if element == -1:
-            break
-        else:
-            ls.append(element)
+def enter_elements_row(number_vector_elements):
+    ls = [int(input("Input element of list:")) for i in range(number_vector_elements)]
     return ls
 
 def get_max_element(ls):
@@ -77,31 +68,22 @@ def change_min_max_value(ls):
 
 
 def main():
-    ls = []
-    ls = enter_elements_row()
-    print(ls)
 
-    max = get_max_element(ls)
-
-    min = get_min_element(ls)
-
-    avg = find_avg(ls)
-
-    max_index = get_first_max_value_index(ls)
-
-    min_index = get_first_min_value_index(ls)
+    number_vector_elements = int(input(f"Input number of list elements: "))
+    ls = enter_elements_row(number_vector_elements)
 
     negative, zero, positive = count_element(ls)
 
-    new_ls = change_min_max_value(ls)
-
-    msg = f"Max value in ls is {max}. Index of first max value is {max_index}. \n" \
-          f"Min value is {min} Index of first min value is {min_index}.\n" \
-          f" The avg of a row is {avg}.\n " \
-          f"Count of negative numbers in ls is {negative}, count of zeros is {zero},\n" \
-          f"count of positive numbers is {positive}.\n" \
-          f"If we swap places of max and min values we'll get new list {new_ls}"
-
+    msg = (f"{ls} \n"
+           f"1)Max value in ls is {get_max_element(ls)}. Index of first max value is "
+           f"{get_first_max_value_index(ls)}. \n"
+           f"2)Min value is {get_min_element(ls)} Index of first min value is "
+           f"{get_first_min_value_index(ls)} \n "
+           f"3)The avg of a row is {find_avg(ls)} \n "
+           f"4) Count of negative numbers in ls is {negative}, count of zeros is {zero},\n"
+           f"count of positive numbers is {positive}.\n"
+           f"5)If we swap places of max and min values we'll get new list "
+           f"{change_min_max_value(ls)}")
     print(msg)
 
 main()
