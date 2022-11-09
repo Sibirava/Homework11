@@ -25,19 +25,29 @@ def find_avg(ls):
         sum += element
     return round(sum / len(ls), 2)
 
-def count_element(ls):
+def count_negative_element(ls):
     count_negative = 0
-    count_zero = 0
-    count_positive = 0
 
     for element in ls:
         if element < 0:
             count_negative += 1
-        elif element == 0:
+    return count_negative
+
+def count_zero_element(ls):
+    count_zero = 0
+
+    for element in ls:
+        if element == 0:
             count_zero += 1
-        else:
+    return count_zero
+
+def count_pozitive_element(ls):
+    count_positive = 0
+
+    for element in ls:
+        if element > 0:
             count_positive += 1
-    return(count_negative, count_zero, count_positive)
+    return count_positive
 
 def get_first_max_value_index(ls):
     max_index = 0
@@ -72,7 +82,6 @@ def main():
     number_vector_elements = int(input(f"Input number of list elements: "))
     ls = enter_elements_row(number_vector_elements)
 
-    negative, zero, positive = count_element(ls)
 
     msg = (f"{ls} \n"
            f"1)Max value in ls is {get_max_element(ls)}. Index of first max value is "
@@ -80,8 +89,9 @@ def main():
            f"2)Min value is {get_min_element(ls)} Index of first min value is "
            f"{get_first_min_value_index(ls)} \n "
            f"3)The avg of a row is {find_avg(ls)} \n "
-           f"4) Count of negative numbers in ls is {negative}, count of zeros is {zero},\n"
-           f"count of positive numbers is {positive}.\n"
+           f"4) Count of negative numbers in ls is {count_negative_element(ls)}, "
+           f"count of zeros is {count_zero_element(ls)},\n"
+           f"count of positive numbers is {count_pozitive_element(ls)}.\n"
            f"5)If we swap places of max and min values we'll get new list "
            f"{change_min_max_value(ls)}")
     print(msg)
